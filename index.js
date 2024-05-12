@@ -70,8 +70,7 @@ app.get("/profile",verificarToken,(req,res)=>{
         Fecha_de_nacimiento: "2000-09-10"
     };
     res.status(200).json(datos);
-})
-
+});
 //endpoint /form
 app.post("/form",  (req, res) => {
     const {text} = req.body;
