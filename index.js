@@ -39,8 +39,8 @@ function obtenerUsuariosAleatorios(usuarios, cantidad) {
 // endpoint /Login
 app.post("/login",(req,res)=>{
     
-    const Email = req.body.email;
-    const Contraseña = req.body.password;
+    const Email = req.body.Email;
+    const Contraseña = req.body.Contraseña;
     if (Email == 'admin@admin.com' && Contraseña == 'admin'){
         const datos = {
             id: "1",
