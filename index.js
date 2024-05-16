@@ -35,7 +35,28 @@ function obtenerUsuariosAleatorios(usuarios, cantidad) {
     }
     return usuariosAleatorios;
 }
-
+app.post("/",(req,res)=>{
+    
+    const Email = req.body.Email;
+    const Contraseña = req.body.Contraseña;
+    if (Email == 'admin@admin.com' && Contraseña == 'admin'){
+        const datos = {
+            id: "1",
+            nombre: "Pepito Julian",
+            Apellido: "Perez Gonzalez",
+            email: "admin@admin.com",
+            Fecha_de_nacimiento: "2000-09-10"
+        };
+        const token = jwt.sign(
+            {userId:datos.id, email: datos.email},
+            TOKEN_KEY,
+            {expiresIn:"3h"}
+        );
+        res.status(200).json(token);
+    }else{
+        res.status(400).send("Credenciales incorrectas o incompletas.");
+    }
+});
 // endpoint /Login
 app.post("/login",(req,res)=>{
     
@@ -65,16 +86,8 @@ app.get('/', (req, res) => {
   });
 
 
-  app.post("/",verificarToken,(req,res)=>{
-    const datos = {
-        id: "1",
-        nombre: "Pepito Julian",
-        Apellido: "Perez Gonzalez",
-        email: "admin@admin.com",
-        Fecha_de_nacimiento: "2000-09-10"
-    };
-    res.status(200).json(datos);
-});
+ 
+
 //endpoint /profile
 app.get("/profile",verificarToken,(req,res)=>{
     const datos = {
