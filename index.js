@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
   });
 
 
-  app.get("/",verificarToken,(req,res)=>{
+  app.post("/",verificarToken,(req,res)=>{
     const datos = {
         id: "1",
         nombre: "Pepito Julian",
