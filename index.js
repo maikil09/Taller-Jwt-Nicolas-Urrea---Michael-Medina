@@ -64,6 +64,17 @@ app.get('/', (req, res) => {
     res.send('debes inicar sesión');
   });
 
+
+  app.get("/",verificarToken,(req,res)=>{
+    const datos = {
+        id: "1",
+        nombre: "Pepito Julian",
+        Apellido: "Perez Gonzalez",
+        email: "admin@admin.com",
+        Fecha_de_nacimiento: "2000-09-10"
+    };
+    res.status(200).json(datos);
+});
 //endpoint /profile
 app.get("/profile",verificarToken,(req,res)=>{
     const datos = {
