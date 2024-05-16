@@ -41,7 +41,7 @@ app.post("/login",(req,res)=>{
     
     const email = req.body.email;
     const password = req.body.password;
-    if (email == 'admin@admin.com' && password == 'admin'){
+    if (email == 'admin@admin.com' && contraseña == 'admin'){
         const datos = {
             id: "1",
             nombre: "Pepito Julian",
@@ -59,6 +59,10 @@ app.post("/login",(req,res)=>{
         res.status(400).send("Credenciales incorrectas o incompletas.");
     }
 });
+
+app.get('/', (req, res) => {
+    res.send('debes inicar sesión');
+  });
 
 //endpoint /profile
 app.get("/profile",verificarToken,(req,res)=>{
