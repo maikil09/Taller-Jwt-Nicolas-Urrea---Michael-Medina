@@ -41,7 +41,7 @@ app.post("/login",(req,res)=>{
     
     const email = req.body.email;
     const password = req.body.password;
-    if (email == 'admin@admin.com' && contraseña == 'admin'){
+    if (Email == 'admin@admin.com' && Contraseña == 'admin'){
         const datos = {
             id: "1",
             nombre: "Pepito Julian",
